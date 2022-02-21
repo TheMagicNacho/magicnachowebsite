@@ -1,7 +1,7 @@
 /*
  * Place all site global states here for use throuout the site.
  * Consume with useContext() 
- * We have already wrapped the app in the provider
+ * We have already wrapped the app in the provider.
  */
 import React from 'react';
 
