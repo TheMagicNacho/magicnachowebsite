@@ -1,0 +1,37 @@
+@import "variables.scss";
+
+
+
+body {
+  color: $default-text-color;
+  background-color: $background-color;
+ 
+}
+
+// TEXT ALIGNMENT
+.tmn-centerText {
+    text-align: center;
+}
+
+.tmn-leftText {
+    text-align: left;
+}
+
+.tmn-rightText {
+    text-align: right;
+}
+
+.tmn-justifyText {
+    text-align: justify;
+}
+
+.tmn-buttonClasic {
+  border: #000;
+  border-style: $button-border;
+  text-align: center;
+  text-decoration: none;
+  font-size: $button-font-size;
+  font-family: inherit;
+  margin: 4px 2px;
+  cursor: pointer;
+}

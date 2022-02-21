@@ -5,10 +5,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
+
 // CUSTOM IMPORTS
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import SiteContextProvider from './contexts/SiteData'
+
+import "./sass/main.scss";
+
 
 ReactDOM.render (
   <React.StrictMode>
