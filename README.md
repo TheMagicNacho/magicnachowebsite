@@ -9,3 +9,7 @@
 
 # Grid
 Modified from: http://sassflexboxgrid.com/
+
+# NavBar
+- the list of pages is a context titled sitePages look at SiteData.js
+- the navBar is consumed in the Header under components

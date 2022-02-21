@@ -1,13 +1,13 @@
 import React from 'react';
-import { SiteContext } from '../contexts/SiteData';
+
+import Header from '../components/Header'
 
 export default function AboutPage(){
-    const { siteTitle } = React.useContext(SiteContext);
+
     return (
         <div>
             
-          <h1>{siteTitle}</h1>
-          <h2>About</h2>
+          <Header />
          
         </div>
       );

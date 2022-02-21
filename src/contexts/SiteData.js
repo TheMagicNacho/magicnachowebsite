@@ -10,6 +10,7 @@ export const SiteContext = React.createContext();
 export default function SiteContextProvider({children}){
     // ARANGE: Place all states here
     let [siteTitle, setSiteTitle] = React.useState('Default Title');
+    let [sitePages, setSitePages] = React.useState([]);
 
 
 
@@ -19,11 +20,18 @@ export default function SiteContextProvider({children}){
         setSiteTitle('The Magic Nacho');
     },[]);
 
+    // Note: I'm not searching the folder procedurealrly, becaue I don't know how the production environment will behave.
+    React.useEffect(function(){
+        // TODO: Fetch from AirTable
+        setSitePages(["Home", "About"]);
+    },[]);
+
 
 
     // PREPARE THE FINAL CONTEXT OBJECT 
     const dataBall = {
-        siteTitle
+        siteTitle,
+        sitePages
     }
 
     // ACT: Return the Site Context provider.
