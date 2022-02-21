@@ -4,7 +4,7 @@ import React from "react";
 // IMPORT PAGES
 import AboutPage from "./About";
 import HomePage from './Home';
-
+import SinkPage from "./Sink";
 
 // MANAGE PAGES
 export function Home() {
@@ -13,6 +13,10 @@ export function Home() {
 
 export function About() {
   return <AboutPage />
+}
+
+export function Sink() {
+  return <SinkPage />
 }
 
 

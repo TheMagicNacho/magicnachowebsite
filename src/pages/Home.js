@@ -1,5 +1,6 @@
 import React from 'react';
-import Header from '../components/Header'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 
 export default function HomePage(){
@@ -10,8 +11,8 @@ export default function HomePage(){
           <Header />
 
           <h2>Home Page</h2>
-          <input type="button" class="tmn-buttonClasic" value="Input Button" />
-         
+          
+         <Footer />
         </div>
       );
 }

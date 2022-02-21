@@ -7,30 +7,56 @@ import React from 'react';
 
 export const SiteContext = React.createContext();
 
+
+
+
 export default function SiteContextProvider({children}){
     // ARANGE: Place all states here
     let [siteTitle, setSiteTitle] = React.useState('Default Title');
-    let [sitePages, setSitePages] = React.useState([]);
+    let [sitePages, setSitePages] = React.useState([""]);
+    let [airContext, setAirContext] = React.useState([]);
 
+
+
+    React.useEffect(()=>{
+        var Airtable = require('airtable');
+        var base = new Airtable({apiKey: 'keyu5X8dyarA2BVAw'}).base('appCotDAMCWnwCBQc');
+    
+        base('SiteContext').select({
+            view: 'Grid view'
+        }).firstPage(function(err, records) {
+            if (err) { console.error(err); return; }
+            setAirContext(records);
+        });
+
+    },[]);
 
 
     // ASSERT: Place logic through use effects here.
     React.useEffect(function(){
-        // TODO: Fetch from AirTable
-        setSiteTitle('The Magic Nacho');
-    },[]);
+       airContext.forEach(function(record){
+           // SET SITE-NAME
+            if (record.get('Name') ==='site-name'){
+                setSiteTitle(record.get('Title'))
+            };
+            // SET NAVBAR
+            // Note: I'm not searching the folder procedurealrly, becaue I don't know how the production environment will behave.
+            if (record.get('Name') ==='navbar'){
+                const navString = record.get('Title');
+                const navArray = navString.split(',');
+                
+                setSitePages(navArray);
+            };
+       })
+    },[airContext]);
 
-    // Note: I'm not searching the folder procedurealrly, becaue I don't know how the production environment will behave.
-    React.useEffect(function(){
-        // TODO: Fetch from AirTable
-        setSitePages(["Home", "About"]);
-    },[]);
 
 
 
     // PREPARE THE FINAL CONTEXT OBJECT 
     const dataBall = {
         siteTitle,
+        airContext,
         sitePages
     }
 

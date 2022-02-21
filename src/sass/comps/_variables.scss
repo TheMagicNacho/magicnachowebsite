@@ -45,6 +45,7 @@ $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
 
 $background-color: color("grey", "base") !default;
+$background-darken: darken($background-color, 15%) !default;
 $default-text-color: color("black", "base") !default;
 
 
