@@ -1,15 +1,11 @@
-# TMN React Template
+# fresh project
 
-## Stack
-- React
-- Router
-- Sass
-- Blueprint / MUI / Tailwinds
+### Usage
 
+Start the project:
 
-# Grid
-Modified from: http://sassflexboxgrid.com/
+```
+deno task start
+```
 
-# NavBar
-- the list of pages is a context titled sitePages look at SiteData.js
-- the navBar is consumed in the Header under components
+This will watch the project directory and restart as necessary.
