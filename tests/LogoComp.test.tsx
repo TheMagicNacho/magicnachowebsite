@@ -9,15 +9,12 @@
 //     it,
 //   } from "https://deno.land/std@0.146.0/testing/bdd.ts";
 
-
 // describe("The logo comp should", ()=>{
-//     // beforeEach(() => {
-
-//     // });
 
 //     it("render the logo", () =>{
+//         const container = document.getElementById('topBar');
+//         render(LogoComp, container);
 
-//         assert();
 //     })
 
 // });
