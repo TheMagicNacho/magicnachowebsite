@@ -7,16 +7,23 @@ const sectionBackground = Randomizer.sectionColor();
 export const globalStyles = css({
 	':global': {
 		body: {
-			backgroundColor: 'white',
+			// backgroundColor: 'white',
+			backgroundImage: 'url(/background/bluecard.jpg)',
 			display: 'flex',
 			flexDirection: 'column',
             padding: '2%',
 		},
 
 		a: {
-			color: theme('colors.blue.500'),
-			'&:hover': apply`text-blue-700`,
+			color: 'DarkBlue',
+			'&:hover': {
+				color: 'LightBlue',
+			},
+			'&:visited': {
+				color: 'BlueViolet',
+			},
 		},
+	
 
 		h1: {
 			fontSize: '2.5em',
@@ -56,8 +63,8 @@ export const globalStyles = css({
 			borderStyle: 'outset',
 			borderWidth: 'thick',
             padding: '2vw',
-            height: 'fitContent',
-            background: sectionBackground,
+            backgroundColor: sectionBackground,
+			margin: '1% 0 1% 0'
         },
 	},
 

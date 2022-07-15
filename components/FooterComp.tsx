@@ -4,6 +4,7 @@ import { useState } from 'preact/hooks';
 import { IS_BROWSER } from '$fresh/runtime.ts';
 import { tw } from '@twind';
 import Helper from '../utils/Helper.ts';
+import Randomizer from '../utils/Randomizer.ts'
 import { apply, css, theme } from 'twind/css';
 import { Handlers, PageProps } from "$fresh/server.ts"
 
@@ -31,11 +32,12 @@ const footerStyle = css({
 		flexBasis: '100%',
 		height: '0',
 	},
+	img: {
+		left: '50%',
+		justifyItems: 'center',
+		justifyContent: 'center',
+	},
 
-	// '.footer-navigation': {
-	//     lineBreak: 'auto',
-	//     color: 'red',
-	// },
 
 	'.footer-navigation li': {
 		display: 'inline',
@@ -46,12 +48,6 @@ const footerStyle = css({
 		listStyleType: 'none',
 		paddingLeft: '0',
 	},
-	// '.footer-navigation a::before': {
-	// 	color: 'black',
-	// 	content: '" - "',
-	// 	fontSize: '80%',
-	// 	padding: '0 3px',
-	// },
 });
 
 interface IFooterProps {
@@ -64,6 +60,11 @@ interface IDataField{
 	Value: string;
 	Name: string;
 }
+
+const bannerStyle = {
+	marginLeft: 'auto',
+	marginRight: 'auto',
+};
 
 export default function Footer(props: IFooterProps): h.JSX.Element {
 	const pageArray = Helper.getPages();
@@ -110,11 +111,22 @@ export default function Footer(props: IFooterProps): h.JSX.Element {
 				<div dangerouslySetInnerHTML={{ __html: socialContent }} />
 			</div>
 
+			{/* <div class={'break'}></div>
+			<div class={'footer-col-span'} style={bannerStyle}  >
+			   <img style={bannerStyle} src={`/banner/${Randomizer.banner()}`}alt={'banner'} />
+			</div> */}
+
+			<div class={'break'}></div>
+			<div class={'footer-col-span'}>
+				&copy; {today.getFullYear()} - webmaster: TheMagicNacho
+			</div>
+
 			<div class={'break'}></div>
 
-			<div class={'footer-col-span'}>
-			    &copy; {today.getFullYear()} : TheMagicNacho
+			<div class={'footer-col-span'} style={bannerStyle}  >
+				<img style={bannerStyle} src={`/badges/getfirefox.gif`}alt={'getfirefox'} />
 			</div>
+
 		</footer>
 	);
 }

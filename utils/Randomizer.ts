@@ -1,11 +1,12 @@
 import { css } from 'twind/css';
+import Helper from './Helper.ts'
 
 const logoA = css`
 @import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
 
 display: flex;
 justify-content: center;
-
+padding: 3%;
 font-family: 'Montserrat', sans-serif;
 font-size: 8vw;
 letter-spacing:0.1em;
@@ -20,11 +21,9 @@ text-shadow:
 
 const logoB = css`
 font-size: 8vw;
-
 display: flex;
 justify-content: center;
-
-padding: 4%;
+padding: 3%;
 color: #fcedd8;
 font-family: 'Niconne', cursive;
 font-weight: 700;
@@ -45,9 +44,26 @@ font-size: 8vw;
 display: flex;
 justify-content: center;
 
-padding: 4%;
-color: slategray;
+padding: 3%;
+color: blue;
+`
+const logoD = css`
+font-size: 8vw;
 
+display: flex;
+justify-content: center;
+font-family: cursive;
+padding: 3%;
+color: white;
+text-shadow:
+  0 0 5px #fff,
+  0 0 10px #fff,
+  0 0 20px #fff,
+  0 0 40px #0ff,
+  0 0 80px #0ff,
+  0 0 90px #0ff,
+  0 0 100px #0ff,
+  0 0 150px #0ff;
 `
 
 export default class Randomizer {
@@ -59,19 +75,27 @@ export default class Randomizer {
 
 
     public static logo(): any {
-        const styleArray = [logoA, logoB, logoC]
+        const styleArray = [logoA, logoB, logoC,logoD]
 
         const selectedIndex = this.randInt(styleArray.length);
 
         return styleArray[selectedIndex];
     }
 
-    public static sectionColor(): any {
-        const colorArray = ['Orange', 'Yellow', 'Slategray', 'Pink', 'Gray', 'SlateBlue', 'Violet', 'DogerBlue', 'Tomato']
+    public static sectionColor(): string {
+        const colorArray = ['Orange', 'Slategray', 'Pink', 'Gray', 'Violet', 'DogerBlue', 'Tomato']
 
         const selectedIndex = this.randInt(colorArray.length);
 
         return colorArray[selectedIndex];
+    }
+
+    public static banner(): string {
+        const bannerArray = Helper.getBanner();
+
+        const selectedIndex = this.randInt(bannerArray.length);
+
+        return bannerArray[selectedIndex];
     }
 
 }

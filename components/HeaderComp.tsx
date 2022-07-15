@@ -9,6 +9,7 @@ import { css } from 'twind/css';
 import { globalStyles } from '../style/globalStyle.ts';
 import Randomizer from '../utils/Randomizer.ts';
 
+
 interface LogoProps {
 	title: string;
 }
