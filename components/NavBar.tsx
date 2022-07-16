@@ -3,10 +3,8 @@ import { h } from 'preact';
 import { useState } from 'preact/hooks';
 import { IS_BROWSER } from '$fresh/runtime.ts';
 import { tw } from '@twind';
-import Helper from '../utils/Helper.ts'
+import Helper from '../utils/Helper.ts';
 import { apply, css, theme } from 'twind/css';
-
-
 
 const navStyle = css({
 	'.navigation': {
@@ -27,6 +25,7 @@ const navStyle = css({
 	},
 });
 
+// const domain = 'http://localhost:8000'
 export default function NavBar(): h.JSX.Element {
 	const pageArray = Helper.getPages();
 
@@ -37,7 +36,7 @@ export default function NavBar(): h.JSX.Element {
 					<li class={'navigation'}>
 						{pageArray.map((page: string, index: number) => {
 							const pageString = `/${
-								page === 'home' ? 'index.tsx' : page
+								page === 'home' ? '' : page
 							}`;
 							const pageTitle = page.toUpperCase();
 

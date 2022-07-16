@@ -35,16 +35,15 @@ export default class Helper {
 	public static getBanner() {
 		var banners = new Array();
 		for (const entry of walkSync('./static/banner/')) {
-			console.log('entry path: ', entry.path);
+			// console.log('entry path: ', entry.path);
 			const splitString = entry.path.split('/')[2];
 			if (splitString) {
 				banners.push(splitString);
 			}
 		}
-		console.log('banners: ', banners);
+		// console.log('banners: ', banners);
 		return banners;
 	}
-
 }
 // export function getPages() {
 // 	var route = new Array();
@@ -79,5 +78,3 @@ export default class Helper {
 // 	console.log('route: ', route);
 // 	return route;
 // }
-
-

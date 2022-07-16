@@ -4,9 +4,9 @@ import { useState } from 'preact/hooks';
 import { IS_BROWSER } from '$fresh/runtime.ts';
 import { tw } from '@twind';
 import Helper from '../utils/Helper.ts';
-import Randomizer from '../utils/Randomizer.ts'
+import Randomizer from '../utils/Randomizer.ts';
 import { apply, css, theme } from 'twind/css';
-import { Handlers, PageProps } from "$fresh/server.ts"
+import { Handlers, PageProps } from '$fresh/server.ts';
 
 const logoStyle = {
 	marginLeft: 'auto',
@@ -26,6 +26,11 @@ const footerStyle = css({
 		textAlign: 'center',
 		flexGrow: '1',
 		padding: '1rem',
+		alignContent: 'center',
+	},
+
+	'.footer-col-span img': {
+		alignContent: 'center',
 	},
 
 	'.break': {
@@ -37,7 +42,6 @@ const footerStyle = css({
 		justifyItems: 'center',
 		justifyContent: 'center',
 	},
-
 
 	'.footer-navigation li': {
 		display: 'inline',
@@ -55,7 +59,7 @@ interface IFooterProps {
 	social: IDataField;
 }
 
-interface IDataField{
+interface IDataField {
 	Title: string;
 	Value: string;
 	Name: string;
@@ -64,11 +68,14 @@ interface IDataField{
 const bannerStyle = {
 	marginLeft: 'auto',
 	marginRight: 'auto',
+	display: 'block',
+	// left: '50%',
+	// float: 'left'
 };
 
 export default function Footer(props: IFooterProps): h.JSX.Element {
 	const pageArray = Helper.getPages();
-    const today = new Date();
+	const today = new Date();
 	const footerContent = props.content.Value ? props.content.Value : '';
 	const socialContent = props.social.Value ? props.social.Value : '';
 
@@ -77,7 +84,6 @@ export default function Footer(props: IFooterProps): h.JSX.Element {
 	return (
 		<footer class={tw(footerStyle)}>
 			<div class={'footer-col-split'}>
-				{/* <div class={tw(navStyle)}> */}
 				<nav>
 					<ol class={'footer-navigation'}>
 						<li class={'footer-navigation'}>
@@ -104,29 +110,36 @@ export default function Footer(props: IFooterProps): h.JSX.Element {
 				<h3>{props.content.Title}</h3>
 				<div dangerouslySetInnerHTML={{ __html: footerContent }} />
 			</div>
-							
+
 			<div class={'break'}></div>
 
 			<div class={'footer-col-span'}>
 				<div dangerouslySetInnerHTML={{ __html: socialContent }} />
 			</div>
 
-			{/* <div class={'break'}></div>
+			{
+				/* <div class={'break'}></div>
 			<div class={'footer-col-span'} style={bannerStyle}  >
 			   <img style={bannerStyle} src={`/banner/${Randomizer.banner()}`}alt={'banner'} />
-			</div> */}
+			</div> */
+			}
+
+			<div class={'break'}></div>
+
+			<div class={'footer-col-span'} style={bannerStyle}>
+				<a href='https://www.mozilla.org/en-US/firefox/new/'>
+					<img
+						style={bannerStyle}
+						src={`/badges/getfirefox.gif`}
+						alt={'getfirefox'}
+					/>
+				</a>
+			</div>
 
 			<div class={'break'}></div>
 			<div class={'footer-col-span'}>
 				&copy; {today.getFullYear()} - webmaster: TheMagicNacho
 			</div>
-
-			<div class={'break'}></div>
-
-			<div class={'footer-col-span'} style={bannerStyle}  >
-				<img style={bannerStyle} src={`/badges/getfirefox.gif`}alt={'getfirefox'} />
-			</div>
-
 		</footer>
 	);
 }

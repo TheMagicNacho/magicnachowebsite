@@ -1,6 +1,5 @@
-
 import { apply, css, theme } from 'twind/css';
-import Randomizer from '../utils/Randomizer.ts'
+import Randomizer from '../utils/Randomizer.ts';
 
 const sectionBackground = Randomizer.sectionColor();
 
@@ -11,19 +10,19 @@ export const globalStyles = css({
 			backgroundImage: 'url(/background/bluecard.jpg)',
 			display: 'flex',
 			flexDirection: 'column',
-            padding: '2%',
+			padding: '2%',
 		},
 
 		a: {
-			color: 'DarkBlue',
-			'&:hover': {
-				color: 'LightBlue',
-			},
+			color: 'Blue',
+
 			'&:visited': {
-				color: 'BlueViolet',
+				color: 'purple',
+			},
+			'&:hover': {
+				color: 'cyan',
 			},
 		},
-	
 
 		h1: {
 			fontSize: '2.5em',
@@ -51,7 +50,6 @@ export const globalStyles = css({
 			borderWidth: 'thick',
 			flexWrap: 'wrap',
 			width: '100%',
-			
 		},
 
 		header: {
@@ -59,25 +57,25 @@ export const globalStyles = css({
 			width: '100%',
 		},
 
-        '.content': {
+		'.content': {
+			// display: 'flex',
 			borderStyle: 'outset',
 			borderWidth: 'thick',
-            padding: '2vw',
-            backgroundColor: sectionBackground,
-			margin: '1% 0 1% 0'
-        },
+			padding: '2vw',
+			backgroundColor: sectionBackground,
+			margin: '1% 0 1% 0',
+		},
 	},
 
 	// // HEADDER THINGS
 	// '.title': {
-		
+
 	// 	padding: '1vh',
 	// 	textAlign: 'center',
-	// 	display: 'flex',	
+	// 	display: 'flex',
 
 	// 	fontFamily: 'Monserrat',
 
-		
 	// },
 
 	'.navStyle': {
@@ -85,5 +83,23 @@ export const globalStyles = css({
 		borderWidth: 'thick',
 	},
 
+	'.quipper': {},
 
+	'.quip': {
+		width: '100%',
+		display: 'flex',
+		padding: '1%',
+		gap: '5vw',
+	},
+
+	'.quip #date': {
+		color: 'gray',
+		fontSize: '1em',
+		textAlign: 'right',
+	},
+	'.quip #content': {
+		color: 'inherit',
+		fontSize: '1.5em',
+		textAlign: 'left',
+	},
 });
