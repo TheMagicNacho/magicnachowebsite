@@ -24,7 +24,16 @@ interface IQuipperProps {
 export default function QuipComp(props: IQuipperProps): h.JSX.Element {
 	const day = ['Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat', 'Sun'];
 
-	const contentArray = props.postArray;
+	const contentArray = props.postArray.sort((b, a)=>{
+        if (a.Date < b.Date){
+            return -1;
+        } else if (a.Date == b.Date){
+            return 0;
+        } else {
+            return 1;
+        }
+    });
+
 
 	return (
 		<section class={'content'}>
