@@ -3,3 +3,6 @@ fmt: ## Format the project
 
 lint: fmt ## Lint and fix
 	@deno lint
+
+up:
+	@deno task start
