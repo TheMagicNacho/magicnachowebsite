@@ -8,7 +8,7 @@ interface ICardProps {
 
 // Pass in contentTitle and contentBody.
 // will return a standard content card
-export default function Card(props: ICardProps): h.JSX.Element {
+export default function Card(props: ICardProps){
 	const title = props.contentTitle ? props.contentTitle : '';
 	const body = props.contentBody ? props.contentBody : '';
 
